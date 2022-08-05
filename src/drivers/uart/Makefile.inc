@@ -17,6 +17,7 @@ romstage-y += uart8250io.c
 postcar-y += uart8250io.c
 ramstage-y += uart8250io.c
 smm-$(CONFIG_DEBUG_SMI) += uart8250io.c
+romstage-y += i2c_smbus_console.c
 endif
 
 ifeq ($(CONFIG_DRIVERS_UART_8250MEM),y)
