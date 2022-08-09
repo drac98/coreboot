@@ -3,10 +3,11 @@
 #include <console/i2c_smbus.h>
 #include <device/i2c.h>
 #include <device/smbus_host.h>
+#include <southbridge/intel/bd82x6x/pch.h>
 
 void i2c_smbus_console_init(void)
 {
-	// i2c_init();
+	early_pch_init();
 }
 
 void i2c_smbus_console_tx_byte(unsigned char c)
