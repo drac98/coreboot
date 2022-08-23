@@ -19,7 +19,7 @@ void i2c_smbus_console_tx_byte(unsigned char c)
 #endif
 
 #if (CONFIG(CONSOLE_SERIAL) && ENV_RAMSTAGE)
-	do_smbus_write_byte(0x400, 0x48, 0x0, c);
+	do_smbus_write_byte(CONFIG_FIXED_SMBUS_IO_BASE, 0x48, 0x0, c);
 #endif
 
 }
