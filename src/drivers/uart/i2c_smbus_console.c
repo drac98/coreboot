@@ -7,7 +7,7 @@
 
 void i2c_smbus_console_init(void)
 {
-#if (CONFIG(CONSOLE_SERIAL) && ENV_ROMSTAGE)
+#if (CONFIG(CONSOLE_SERIAL) && (ENV_ROMSTAGE || ENV_BOOTBLOCK))
 	early_pch_init();
 #endif
 }
@@ -18,7 +18,7 @@ void i2c_smbus_console_tx_byte(unsigned char c)
 	smbus_write_byte(0x48, 0x0, c);
 #endif
 
-#if (CONFIG(CONSOLE_SERIAL) && ENV_RAMSTAGE)
+#if (CONFIG(CONSOLE_SERIAL) && (ENV_RAMSTAGE || ENV_BOOTBLOCK))
 	do_smbus_write_byte(CONFIG_FIXED_SMBUS_IO_BASE, 0x48, 0x0, c);
 #endif
 
