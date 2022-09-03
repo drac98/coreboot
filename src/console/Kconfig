@@ -323,6 +323,14 @@ config CONSOLE_I2C_SMBUS_SLAVE_DATA_REGISTER
 	help
 	  This an 8-bit data register.
 
+config SC16IS750_INIT
+	bool "Initialize SC16IS750 I2C to UART converter chip"
+	default n
+	depends on CONSOLE_I2C_SMBUS
+	help
+	  SC16IS750 is a slave I2C to UART converter chip. Enabling
+	  this option will initialize the chip.
+
 endif # CONSOLE_I2C_SMBUS
 
 config CONSOLE_QEMU_DEBUGCON

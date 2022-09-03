@@ -4,11 +4,16 @@
 #include <device/i2c.h>
 #include <device/smbus_host.h>
 #include <southbridge/intel/bd82x6x/pch.h>
+#include "sc16is750_init.h"
+
 
 void i2c_smbus_console_init(void)
 {
 #if (CONFIG(CONSOLE_I2C_SMBUS) && (ENV_ROMSTAGE || ENV_BOOTBLOCK))
 	early_pch_init();
+#endif
+#if (CONFIG(SC16IS750_INIT) && (ENV_ROMSTAGE || ENV_BOOTBLOCK))
+	sc16is750_init();
 #endif
 }
 
