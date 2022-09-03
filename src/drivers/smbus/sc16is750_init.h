@@ -16,8 +16,8 @@
 #define REG_DLH 0x01
 
 #define CLOLK_FREQUENCY 14745600	// 14.7 MHz
-#define BAUD 			115200
-#define PRESCALER 		1			//  The default value of prescaler after reset is 1.
+#define BAUD			115200
+#define PRESCALER		1 //  The default value of prescaler after reset is 1.
 
 void sc16is750_write_byte(uint8_t reg, unsigned char c);
 void sc16is750_init(void);
