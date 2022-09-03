@@ -310,6 +310,10 @@ void early_pch_init(void)
 
 	setup_pch_gpios(&mainboard_gpio_map);
 
+#if CONFIG(CONSOLE_I2C_SMBUS)
 	if (ENV_RAMINIT || ENV_INITIAL_STAGE)
+#else
+	if (ENV_RAMINIT)
+#endif /* CONFIG_CONSOLE_I2C_SMBUS */
 		enable_smbus();
 }
