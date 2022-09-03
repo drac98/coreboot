@@ -8,11 +8,8 @@
 void i2c_smbus_console_init(void);
 void i2c_smbus_console_tx_byte(unsigned char c);
 
-#if (CONFIG(CONSOLE_SERIAL) && (ENV_BOOTBLOCK || ENV_ROMSTAGE || ENV_RAMSTAGE))
-#define __CONSOLE_SMBUS_ENABLE__ 1
-#else
-#define __CONSOLE_SMBUS_ENABLE__ 0
-#endif
+#define __CONSOLE_SMBUS_ENABLE__	(CONFIG(CONSOLE_I2C_SMBUS) && \
+	(ENV_BOOTBLOCK || ENV_ROMSTAGE || ENV_RAMSTAGE))
 
 #if __CONSOLE_SMBUS_ENABLE__
 static inline void __i2c_smbus_console_init(void)	{ i2c_smbus_console_init(); }
